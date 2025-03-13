@@ -182,5 +182,6 @@ func (p *devlakeProvider) DataSources(_ context.Context) []func() datasource.Dat
 func (p *devlakeProvider) Resources(_ context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		NewApiKeyResource,
+		NewBitbucketServerConnectionResource,
 	}
 }

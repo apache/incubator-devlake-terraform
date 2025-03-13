@@ -26,9 +26,21 @@ type ApiKeyCreate struct {
 }
 
 type JsonBody struct {
-	Code    int      `json:"code"`
-	Success bool     `json:"success"`
-	Message string   `json:"message"`
 	Causes  []string `json:"causes"`
+	Code    int      `json:"code"`
 	Data    string   `json:"data"`
+	Message string   `json:"message"`
+	Success bool     `json:"success"`
+}
+
+type BitbucketServerConnection struct {
+	ID               int    `json:"id"`
+	CreatedAt        string `json:"createdAt"`
+	Endpoint         string `json:"endpoint"`
+	Name             string `json:"name"`
+	Password         string `json:"password"`
+	Proxy            string `json:"proxy"`
+	RateLimitPerHour int    `json:"rateLimitPerHour"`
+	UpdatedAt        string `json:"updatedAt"`
+	Username         string `json:"username"`
 }

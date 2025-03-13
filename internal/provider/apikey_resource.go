@@ -159,7 +159,7 @@ func (r *apiKeyResource) Read(ctx context.Context, req resource.ReadRequest, res
 		return
 	}
 
-	// Get refreshed order value from Devlake
+	// Get refreshed apikey value from Devlake
 	apiKeys, err := r.client.GetApiKeys()
 	if err != nil {
 		resp.Diagnostics.AddError(
@@ -169,7 +169,7 @@ func (r *apiKeyResource) Read(ctx context.Context, req resource.ReadRequest, res
 		return
 	}
 
-	// Overwrite items with refreshed state
+	// Overwrite apikey with refreshed state
 	for _, apiKey := range apiKeys {
 		if types.StringValue(strconv.Itoa(apiKey.ID)) == state.ID {
 			state = apiKeyResourceModel{
