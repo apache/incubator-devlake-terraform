@@ -63,8 +63,8 @@ func (c *Client) CreateApiKey(apiKeyCreate ApiKeyCreate) (*ApiKey, error) {
 }
 
 // DeleteApiKey - Deletes an apikey.
-func (c *Client) DeleteApiKey(apiKeyID int) error {
-	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/api-keys/%d", c.HostURL, apiKeyID), nil)
+func (c *Client) DeleteApiKey(id string) error {
+	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/api-keys/%s", c.HostURL, id), nil)
 	if err != nil {
 		return err
 	}

@@ -208,16 +208,8 @@ func (r *apiKeyResource) Delete(ctx context.Context, req resource.DeleteRequest,
 		return
 	}
 
-	i, err := strconv.Atoi(state.ID.ValueString())
-	if err != nil {
-		resp.Diagnostics.AddError(
-			"Error deleting apikey",
-			"Could not delete apikey, unexpected error: "+err.Error(),
-		)
-		return
-	}
 	// Delete existing apikey
-	err = r.client.DeleteApiKey(i)
+	err := r.client.DeleteApiKey(state.ID.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Error deleting apikey",
