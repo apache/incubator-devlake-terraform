@@ -174,9 +174,7 @@ func (r *apiKeyResource) Read(ctx context.Context, req resource.ReadRequest, res
 		if types.StringValue(strconv.Itoa(apiKey.ID)) == state.ID {
 			state = apiKeyResourceModel{
 				ID:          types.StringValue(strconv.Itoa(apiKey.ID)),
-				LastUpdated: state.LastUpdated,
 				AllowedPath: types.StringValue(apiKey.AllowedPath),
-				ApiKey:      state.ApiKey,
 				ExpiredAt:   types.StringValue(apiKey.ExpiredAt),
 				Name:        types.StringValue(apiKey.Name),
 				Type:        types.StringValue(apiKey.Type),
