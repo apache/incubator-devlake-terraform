@@ -18,7 +18,10 @@ fmt:
 test:
 	go test -v -cover -timeout=120s -parallel=10 ./...
 
-testacc:
+testacc: install docker_compose/token.txt
 	DEVLAKE_TOKEN=$(shell ./docker_compose/token.sh) TF_ACC=1 go test -v -cover -timeout 120m ./...
+
+docker_compose/token.txt:
+	./docker_compose/start.sh
 
 .PHONY: fmt lint test testacc build install generate

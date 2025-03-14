@@ -90,10 +90,4 @@ jobs:
           TF_ACC: "1"
         timeout-minutes: 10
         run: |
-          docker compose -f docker_compose/docker-compose.yml up -d
-          until curl -s -X GET "http://localhost:8080/ready" | grep -q '"message":"ready"'; do
-            echo "Waiting for the service to be ready..."
-            sleep 5
-          done
-          echo "Service is ready!"
           make testacc

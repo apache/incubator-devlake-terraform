@@ -16,10 +16,10 @@ func TestAccBitbucketServerConnectionResource(t *testing.T) {
 			{
 				Config: providerConfig + `
 resource "devlake_bitbucketserver_connection" "tfresourcename" {
-  endpoint	= "https://bitbucket-server.org"
+  endpoint  = "https://bitbucket-server.org"
   name      = "should_not_exist"
-  password 	= "whatever"
-  username 	= "serviceAccount"
+  password  = "whatever"
+  username  = "serviceAccount"
 }
 `,
 				Check: resource.ComposeAggregateTestCheckFunc(
@@ -49,14 +49,14 @@ resource "devlake_bitbucketserver_connection" "tfresourcename" {
 			{
 				Config: providerConfig + `
 resource "devlake_bitbucketserver_connection" "tfresourcename" {
-  endpoint	= "https://bitbucket-server.org"
+  endpoint  = "https://bitbucket-server2.org"
   name      = "should_not_exist"
-  password 	= "whatever"
-  username 	= "serviceAccount"
+  password  = "whatever"
+  username  = "serviceAccount"
 }
 `,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("devlake_bitbucketserver_connection.tfresourcename", "endpoint", "https://bitbucket-server.org"),
+					resource.TestCheckResourceAttr("devlake_bitbucketserver_connection.tfresourcename", "endpoint", "https://bitbucket-server2.org"),
 					resource.TestCheckResourceAttr("devlake_bitbucketserver_connection.tfresourcename", "name", "should_not_exist"),
 					resource.TestCheckResourceAttr("devlake_bitbucketserver_connection.tfresourcename", "password", "whatever"),
 					resource.TestCheckResourceAttr("devlake_bitbucketserver_connection.tfresourcename", "proxy", ""),

@@ -33,7 +33,7 @@ Then commit the changes to `go.mod` and `go.sum`.
 
 ## Using the provider
 
-Fill this in for each provider
+See the provided examples in the `examples/` directory.
 
 ## Developing the Provider
 
@@ -46,10 +46,7 @@ To generate or update documentation, run `make generate`.
 In order to run the full suite of Acceptance tests, do the following:
 
 ```shell
-# start the backend service
-docker compose -f docker_compose/docker-compose.yml up -d
-# check if the service is ready
-curl -s -X GET "http://localhost:8080/ready"
-# run acceptance tests once the service is ready
 make testacc
 ```
+
+This will start the backend service when called for the first time. If you ever want to restart the backend service, simply remove the file `docker_compose/token.txt` before you run the make target.

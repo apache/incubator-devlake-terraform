@@ -3,7 +3,7 @@
 terraform {
   required_providers {
     devlake = {
-      source = "registry.terraform.io/incubator-devlake/devlake"
+      source = "registry.terraform.io/incubator-devlake-terraform/devlake"
     }
   }
 }

@@ -29,7 +29,7 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		Address: "registry.terraform.io/incubator-devlake/devlake",
+		Address: "registry.terraform.io/incubator-devlake-terraform/devlake",
 		Debug:   debug,
 	}
 
