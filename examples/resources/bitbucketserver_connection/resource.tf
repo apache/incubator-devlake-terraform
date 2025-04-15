@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "devlake" {
-  host  = "http://localhost:8080"
+  host  = "http://localhost:4000/api"
   token = "whatever"
 }
 
@@ -18,9 +18,4 @@ resource "devlake_bitbucketserver_connection" "tfresourcename" {
   name     = "should_not_exist"
   password = "whatever"
   username = "serviceAccount"
-}
-
-output "bitbucketserver_connection_resource" {
-  value     = devlake_bitbucketserver_connection.tfresourcename
-  sensitive = true
 }

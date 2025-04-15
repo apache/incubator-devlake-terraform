@@ -17,7 +17,7 @@ description: |-
 
 ### Required
 
-- `endpoint` (String) The REST API endpoint URL.
+- `endpoint` (String) The base endpoint URL.
 - `name` (String) The name of the bitbucket server connection.
 - `password` (String, Sensitive) Service account password or token, the following permissions are required to collect data from Bitbucket repositories: Repository read.
 - `username` (String) Service account username.

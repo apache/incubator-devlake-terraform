@@ -126,8 +126,8 @@ func (r *apiKeyResource) Create(ctx context.Context, req resource.CreateRequest,
 	apiKey, err := r.client.CreateApiKey(apiKeyCreate)
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Error creating apiKey",
-			"Could not create apiKey, unexpected error: "+err.Error(),
+			"Error creating devlake apikey",
+			"Could not create devlake apikey, unexpected error: "+err.Error(),
 		)
 		return
 	}
@@ -160,10 +160,10 @@ func (r *apiKeyResource) Read(ctx context.Context, req resource.ReadRequest, res
 	}
 
 	// Get refreshed apikey value from Devlake
-	apiKeys, err := r.client.GetApiKeys()
+	apiKeys, err := r.client.ReadApiKeys()
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Unable to Read Devlake ApiKeys",
+			"Unable to Read devlake apikeys",
 			err.Error(),
 		)
 		return
@@ -191,7 +191,7 @@ func (r *apiKeyResource) Read(ctx context.Context, req resource.ReadRequest, res
 	}
 }
 
-// Update updates the resource and sets the updated Terraform state on success.
+// Update fetches the resource and sets the updated Terraform state on success.
 func (r *apiKeyResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
 	// all modifyable fields are set to requires replace so no update is needed
 }
@@ -210,8 +210,8 @@ func (r *apiKeyResource) Delete(ctx context.Context, req resource.DeleteRequest,
 	err := r.client.DeleteApiKey(state.ID.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Error deleting apikey",
-			"Could not delete apikey, unexpected error: "+err.Error(),
+			"Error deleting devlake apikey",
+			"Could not delete devlake apikey, unexpected error: "+err.Error(),
 		)
 		return
 	}

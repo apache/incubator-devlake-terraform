@@ -74,7 +74,7 @@ func (r *bitbucketServerConnectionResource) Schema(_ context.Context, _ resource
 				Description: "When the connection was created in devlake.",
 			},
 			"endpoint": schema.StringAttribute{
-				Description: "The REST API endpoint URL.",
+				Description: "The base endpoint URL.",
 				Required:    true,
 			},
 			"name": schema.StringAttribute{
@@ -136,8 +136,8 @@ func (r *bitbucketServerConnectionResource) Create(ctx context.Context, req reso
 	bitbucketServerConnection, err := r.client.CreateBitbucketServerConnection(bitbucketServerConnectionCreate)
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Error creating bitbucketServerConnection",
-			"Could not create bitbucketServerConnection, unexpected error: "+err.Error(),
+			"Error creating devlake bitbucket server connection",
+			"Could not create devlake bitbucket server connection, unexpected error: "+err.Error(),
 		)
 		return
 	}
@@ -172,10 +172,10 @@ func (r *bitbucketServerConnectionResource) Read(ctx context.Context, req resour
 	}
 
 	// Get refreshed bitbucket server connection value from Devlake
-	bitbucketServerConnection, err := r.client.GetBitbucketServerConnection(state.ID.ValueString())
+	bitbucketServerConnection, err := r.client.ReadBitbucketServerConnection(state.ID.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Unable to Read Devlake BitbucketServerConnection",
+			"Unable to read devlake bitbucket server connection",
 			err.Error(),
 		)
 		return
@@ -199,7 +199,7 @@ func (r *bitbucketServerConnectionResource) Read(ctx context.Context, req resour
 	}
 }
 
-// Update updates the resource and sets the updated Terraform state on success.
+// Update fetches the resource and sets the updated Terraform state on success.
 func (r *bitbucketServerConnectionResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
 	// Retrieve values from plan
 	var plan bitbucketServerConnectionResourceModel
@@ -213,8 +213,8 @@ func (r *bitbucketServerConnectionResource) Update(ctx context.Context, req reso
 	id, err := strconv.Atoi(plan.ID.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Error updating bitbucketserverconnection",
-			"Could not update bitbucketserverconnection, unexpected error: "+err.Error(),
+			"Error updating devlake bitbucket server connection",
+			"Could not update devlake bitbucket server connection, unexpected error: "+err.Error(),
 		)
 		return
 	}
@@ -230,12 +230,12 @@ func (r *bitbucketServerConnectionResource) Update(ctx context.Context, req reso
 		Username:         plan.Username.ValueString(),
 	}
 
-	// Update existing order
+	// Update existing connection
 	updatedBitbucketServerConnection, err := r.client.UpdateBitbucketServerConnection(plan.ID.ValueString(), bitbucketServerConnectionUpdate)
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Error updating bitbucketserverconnection",
-			"Could not update bitbucketserverconnection, unexpected error: "+err.Error(),
+			"Error updating devlake bitbucket server connection",
+			"Could not update devlake bitbucket server connection, unexpected error: "+err.Error(),
 		)
 		return
 	}
@@ -271,8 +271,8 @@ func (r *bitbucketServerConnectionResource) Delete(ctx context.Context, req reso
 	err := r.client.DeleteBitbucketServerConnection(state.ID.ValueString())
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Error deleting apikey",
-			"Could not delete apikey, unexpected error: "+err.Error(),
+			"Error deleting devlake bitbucket server connection",
+			"Could not delete devlake bitbucket server connection, unexpected error: "+err.Error()+"..",
 		)
 		return
 	}

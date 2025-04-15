@@ -3,4 +3,4 @@
 
 
 # Apikey can be imported by specifying the numeric identifier.
-terraform import devlake_apikey.tfresourcename 1
+terraform import devlake_apikey.tfresourcename "1"

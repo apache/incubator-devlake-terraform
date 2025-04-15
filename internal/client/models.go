@@ -44,3 +44,32 @@ type BitbucketServerConnection struct {
 	UpdatedAt        string `json:"updatedAt"`
 	Username         string `json:"username"`
 }
+
+type BitbucketServerConnectionScopeConfig struct {
+	ConnectionId int      `json:"connectionId"`
+	CreatedAt    string   `json:"createdAt"`
+	ID           int      `json:"id"`
+	Entities     []string `json:"entities"`
+	Name         string   `json:"name"`
+	PrComponent  string   `json:"prComponent"`
+	PrType       string   `json:"prType"`
+	RefDiff      *RefDiff `json:"refdiff"`
+	UpdatedAt    string   `json:"updatedAt"`
+}
+
+type RefDiff struct {
+	TagsLimit   int    `json:"tagsLimit"`
+	TagsPattern string `json:"tagsPattern"`
+}
+
+type BitbucketServerConnectionScope struct {
+	BitbucketId   string `json:"bitbucketId"`
+	CloneUrl      string `json:"cloneUrl"`
+	ConnectionId  int    `json:"connectionId"`
+	CreatedAt     string `json:"createdAt"`
+	Description   string `json:"description"`
+	HTMLUrl       string `json:"HTMLUrl"`
+	Name          string `json:"name"`
+	ScopeConfigId int    `json:"scopeConfigId"`
+	UpdatedAt     string `json:"updatedAt"`
+}
