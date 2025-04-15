@@ -126,10 +126,10 @@ func (d *apiKeysDataSource) Schema(_ context.Context, _ datasource.SchemaRequest
 func (d *apiKeysDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
 	var state apiKeysDataSourceModel
 
-	apiKeys, err := d.client.GetApiKeys()
+	apiKeys, err := d.client.ReadApiKeys()
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Unable to Read Devlake ApiKeys",
+			"Unable to Read devlake apikeys",
 			err.Error(),
 		)
 		return

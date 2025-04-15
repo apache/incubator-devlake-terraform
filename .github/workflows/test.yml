@@ -89,5 +89,4 @@ jobs:
       - env:
           TF_ACC: "1"
         timeout-minutes: 10
-        run: |
-          make testacc
+        run: make testacc

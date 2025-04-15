@@ -5,7 +5,7 @@ _This template repository is built on the [Terraform Plugin Framework](https://g
 ## Requirements
 
 - [Terraform](https://developer.hashicorp.com/terraform/downloads) >= 1.0
-- [Go](https://golang.org/doc/install) >= 1.22
+- [Go](https://golang.org/doc/install) >= 1.23
 
 ## Building The Provider
 

@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+version: "3"
 services:
   mysql:
     image: mysql:8
@@ -30,19 +31,6 @@ services:
     command: --character-set-server=utf8mb4
       --collation-server=utf8mb4_bin
       --skip-log-bin
-
-  postgres:
-    image: postgres:14.2
-    volumes:
-      - postgres-storage:/var/lib/postgresql
-    restart: always
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_DB: lake
-      POSTGRES_USER: merico
-      POSTGRES_PASSWORD: merico
-      TZ: UTC
 
   grafana:
     image: devlake.docker.scarf.sh/apache/devlake-dashboard:latest
@@ -102,31 +90,7 @@ services:
     depends_on:
       - devlake
 
-  authproxy:
-    image: quay.io/oauth2-proxy/oauth2-proxy:v7.4.0-amd64
-    network_mode: "host"
-    ports:
-      - 4180:4180
-    env_file:
-      - ./.env
-    # environment:
-    #   OAUTH2_PROXY_PROVIDER: oidc
-    #   OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: my provider
-    #   OAUTH2_PROXY_COOKIE_SECRET:
-    #   OAUTH2_PROXY_COOKIE_DOMAINS: localhost:4180
-    #   OAUTH2_PROXY_COOKIE_SECURE: 'false'
-    #   OAUTH2_PROXY_EMAIL_DOMAINS: *
-    #   OAUTH2_PROXY_OIDC_ISSUER_URL:
-    #   OAUTH2_PROXY_OIDC_JWKS_URL:
-    #   OAUTH2_PROXY_CLIENT_ID:
-    #   OAUTH2_PROXY_CLIENT_SECRET:
-    #   OAUTH2_PROXY_UPSTREAMS: http://localhost:4000
-    #   OAUTH2_PROXY_HTTP_ADDRESS: http://0.0.0.0:4180
-    #   OAUTH2_PROXY_REVERSE_PROXY: 'true'
-    #   OAUTH2_PROXY_SKIP_AUTH_ROUTES: ^/grafana.*
-
 volumes:
   mysql-storage:
   grafana-storage:
-  postgres-storage:
   devlake-log:
