@@ -9,7 +9,7 @@ updates:
       # Check for updates to Go modules every week
       interval: "weekly"
     groups:
-      all:
+      deps:
         patterns:
           - "*"
   - package-ecosystem: "gomod"
@@ -17,7 +17,7 @@ updates:
     schedule:
       interval: "daily"
     groups:
-      all:
+      tools:
         patterns:
           - "*"
   - package-ecosystem: "github-actions"
@@ -25,6 +25,6 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      all:
+      actions:
         patterns:
           - "*"
