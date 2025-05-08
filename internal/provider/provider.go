@@ -85,8 +85,8 @@ func (p *devlakeProvider) Configure(ctx context.Context, req provider.ConfigureR
 	if config.Host.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("host"),
-			"Unknown Devlake API Host",
-			"The provider cannot create the Devlake API client as there is an unknown configuration value for the Devlake API host. "+
+			"Unknown devlake api host",
+			"The provider cannot create the devlake api client as there is an unknown configuration value for the devlake api host. "+
 				"Either target apply the source of the value first, set the value statically in the configuration, or use the DEVLAKE_HOST environment variable.",
 		)
 	}
@@ -94,8 +94,8 @@ func (p *devlakeProvider) Configure(ctx context.Context, req provider.ConfigureR
 	if config.Token.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("token"),
-			"Unknown Devlake API Token",
-			"The provider cannot create the Devlake API client as there is an unknown configuration value for the Devlake API token. "+
+			"Unknown devlake api token",
+			"The provider cannot create the devlake api client as there is an unknown configuration value for the devlake api token. "+
 				"Either target apply the source of the value first, set the value statically in the configuration, or use the DEVLAKE_TOKEN environment variable.",
 		)
 	}
@@ -124,8 +124,8 @@ func (p *devlakeProvider) Configure(ctx context.Context, req provider.ConfigureR
 	if host == "" {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("host"),
-			"Missing Devlake API Host",
-			"The provider cannot create the Devlake API client as there is a missing or empty value for the Devlake API host. "+
+			"Missing devlake api host",
+			"The provider cannot create the devlake api client as there is a missing or empty value for the devlake api host. "+
 				"Set the host value in the configuration or use the DEVLAKE_HOST environment variable. "+
 				"If either is already set, ensure the value is not empty.",
 		)
@@ -134,8 +134,8 @@ func (p *devlakeProvider) Configure(ctx context.Context, req provider.ConfigureR
 	if token == "" {
 		resp.Diagnostics.AddAttributeError(
 			path.Root("token"),
-			"Missing Devlake API Token",
-			"The provider cannot create the Devlake API client as there is a missing or empty value for the Devlake API token. "+
+			"Missing devlake api token",
+			"The provider cannot create the devlake api client as there is a missing or empty value for the devlake api token. "+
 				"Set the token value in the configuration or use the DEVLAKE_TOKEN environment variable. "+
 				"If either is already set, ensure the value is not empty.",
 		)
@@ -155,10 +155,10 @@ func (p *devlakeProvider) Configure(ctx context.Context, req provider.ConfigureR
 	client, err := client.NewClient(&host, &token)
 	if err != nil {
 		resp.Diagnostics.AddError(
-			"Unable to Create Devlake API Client",
-			"An unexpected error occurred when creating the Devlake API client. "+
+			"Unable to create devlake api client",
+			"An unexpected error occurred when creating the devlake api client. "+
 				"If the error is not clear, please contact the provider developers.\n\n"+
-				"Devlake Client Error: "+err.Error(),
+				"devlake client error: "+err.Error(),
 		)
 		return
 	}
@@ -183,5 +183,7 @@ func (p *devlakeProvider) Resources(_ context.Context) []func() resource.Resourc
 	return []func() resource.Resource{
 		NewApiKeyResource,
 		NewBitbucketServerConnectionResource,
+		NewBitbucketServerConnectionScopeConfigResource,
+		NewBitbucketServerConnectionScopeResource,
 	}
 }

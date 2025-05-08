@@ -10,31 +10,6 @@ import (
 	"strings"
 )
 
-// GetApiKeys - Returns list of apikeys.
-func (c *Client) GetApiKeys() ([]ApiKey, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s/api-keys", c.HostURL), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	body, err := c.doRequest(req)
-	if err != nil {
-		return nil, err
-	}
-
-	apiKeys := []ApiKey{}
-	err = json.Unmarshal(body, &struct {
-		ApiKeys *[]ApiKey `json:"apikeys"`
-	}{
-		ApiKeys: &apiKeys,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	return apiKeys, nil
-}
-
 // CreateApiKey - Creates new apikey.
 func (c *Client) CreateApiKey(apiKeyCreate ApiKeyCreate) (*ApiKey, error) {
 	rb, err := json.Marshal(apiKeyCreate)
@@ -60,6 +35,31 @@ func (c *Client) CreateApiKey(apiKeyCreate ApiKeyCreate) (*ApiKey, error) {
 	}
 
 	return &apiKey, nil
+}
+
+// ReadApiKeys - Returns list of apikeys.
+func (c *Client) ReadApiKeys() ([]ApiKey, error) {
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/api-keys", c.HostURL), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	body, err := c.doRequest(req)
+	if err != nil {
+		return nil, err
+	}
+
+	apiKeys := []ApiKey{}
+	err = json.Unmarshal(body, &struct {
+		ApiKeys *[]ApiKey `json:"apikeys"`
+	}{
+		ApiKeys: &apiKeys,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return apiKeys, nil
 }
 
 // DeleteApiKey - Deletes an apikey.

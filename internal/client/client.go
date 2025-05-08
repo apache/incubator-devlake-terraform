@@ -11,7 +11,7 @@ import (
 )
 
 // HostURL - Default Devlake URL.
-const HostURL string = "http://localhost:8080"
+const HostURL string = "http://localhost:4000/api"
 
 // Client - Holds backend data.
 type Client struct {

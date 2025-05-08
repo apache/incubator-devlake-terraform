@@ -11,10 +11,10 @@ const (
 	// providerConfig is a shared configuration to combine with the actual
 	// test configuration so the devlake client is properly configured.
 	// It is also possible to use the DEVLAKE_ environment variables instead,
-	// such as updating the Makefile and running the testing through that tool.
+	// update the environment variables the Makefile if you want to use that.
 	providerConfig = `
 provider "devlake" {
-  host  = "http://localhost:8080"
+  host  = "http://localhost:4000/api"
   token = "whatever"
 }
 `
