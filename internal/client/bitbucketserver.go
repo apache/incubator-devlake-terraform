@@ -44,7 +44,7 @@ func (c *Client) DeleteBitbucketServerConnection(id string) error {
 // CreateBitbucketServerConnectionScopeConfig - Creates a bitbucket server connection scope config.
 func (c *Client) CreateBitbucketServerConnectionScopeConfig(connectionId string, scopeConfig BitbucketServerConnectionScopeConfig) (*BitbucketServerConnectionScopeConfig, error) {
 	url := fmt.Sprintf("%s/plugins/bitbucket_server/connections/%s/scope-configs", c.HostURL, connectionId)
-	return create[BitbucketServerConnectionScopeConfig](c, url, scopeConfig)
+	return create(c, url, scopeConfig)
 }
 
 // ReadBitbucketServerConnectionScopeConfig - Reads a bitbucket server connection scope config.
