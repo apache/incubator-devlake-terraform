@@ -247,7 +247,7 @@ func (r *bitbucketServerConnectionScopeConfigResource) Read(ctx context.Context,
 		return
 	}
 
-	// Overwrite bitbucket connection scope config with refreshed state
+	// Overwrite bitbucket server connection scope config with refreshed state
 	entitiesVal, diags := types.ListValueFrom(ctx, types.StringType, bitbucketServerConnectionScopeConfig.Entities)
 	resp.Diagnostics.Append(diags...)
 	if resp.Diagnostics.HasError() {
@@ -266,6 +266,7 @@ func (r *bitbucketServerConnectionScopeConfigResource) Read(ctx context.Context,
 	} else {
 		state.RefDiff = nil
 	}
+
 	// Set refreshed state
 	diags = resp.State.Set(ctx, &state)
 	resp.Diagnostics.Append(diags...)

@@ -159,7 +159,7 @@ func (r *bitbucketServerConnectionScopeResource) Create(ctx context.Context, req
 
 	// Map response body to schema and populate Computed attribute values
 	plan.ID = types.StringValue(bitbucketServerConnectionScope.BitbucketId)
-	plan.LastUpdated = types.StringValue(now)
+	plan.LastUpdated = types.StringValue(time.Now().Format(time.RFC3339))
 	plan.CloneUrl = types.StringValue(bitbucketServerConnectionScope.CloneUrl)
 	plan.ConnectionId = types.StringValue(strconv.Itoa(bitbucketServerConnectionScope.ConnectionId))
 	plan.CreatedAt = types.StringValue(bitbucketServerConnectionScope.CreatedAt)
