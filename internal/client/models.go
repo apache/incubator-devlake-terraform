@@ -91,15 +91,25 @@ type GithubConnection struct {
 }
 
 type GithubConnectionScopeConfig struct {
-	ConnectionId int      `json:"connectionId"`
-	CreatedAt    string   `json:"createdAt"`
-	ID           int      `json:"id"`
-	Entities     []string `json:"entities"`
-	Name         string   `json:"name"`
-	PrComponent  string   `json:"prComponent"`
-	PrType       string   `json:"prType"`
-	RefDiff      *RefDiff `json:"refdiff"`
-	UpdatedAt    string   `json:"updatedAt"`
+	ConnectionId         int      `json:"connectionId"`
+	CreatedAt            string   `json:"createdAt"`
+	DeploymentPattern    string   `json:"deploymentPattern"`
+	Entities             []string `json:"entities"`
+	EnvNamePattern       string   `json:"envNamePattern"`
+	ID                   int      `json:"id"`
+	IssueComponent       string   `json:"issueComponent"`
+	IssuePriority        string   `json:"issuePriority"`
+	IssueSeverity        string   `json:"issueSeverity"`
+	IssueTypeBug         string   `json:"issueTypeBug"`
+	IssueTypeIncident    string   `json:"issueTypeIncident"`
+	IssueTypeRequirement string   `json:"issueTypeRequirement"`
+	Name                 string   `json:"name"`
+	PrBodyClosePattern   string   `json:"prBodyClosePattern"`
+	PrComponent          string   `json:"prComponent"`
+	PrType               string   `json:"prType"`
+	ProductionPattern    string   `json:"productionPattern"`
+	RefDiff              *RefDiff `json:"refdiff"`
+	UpdatedAt            string   `json:"updatedAt"`
 }
 
 type GithubConnectionScope struct {
