@@ -296,7 +296,7 @@ func (r *githubConnectionScopeConfigResource) Create(ctx context.Context, req re
 	}
 	plan.Entities = entitiesVal
 	plan.ID = types.StringValue(strconv.Itoa(githubConnectionScopeConfig.ID))
-	plan.LastUpdated = types.StringValue(now)
+	plan.LastUpdated = types.StringValue(time.Now().Format(time.RFC850))
 	plan.CreatedAt = types.StringValue(githubConnectionScopeConfig.CreatedAt)
 	plan.DeploymentPattern = types.StringValue(githubConnectionScopeConfig.DeploymentPattern)
 	plan.EnvNamePattern = types.StringValue(githubConnectionScopeConfig.EnvNamePattern)
@@ -467,7 +467,6 @@ func (r *githubConnectionScopeConfigResource) Update(ctx context.Context, req re
 	plan.IssueTypeBug = types.StringValue(updatedGithubConnectionScopeConfig.IssueTypeBug)
 	plan.IssueTypeIncident = types.StringValue(updatedGithubConnectionScopeConfig.IssueTypeIncident)
 	plan.IssueTypeRequirement = types.StringValue(updatedGithubConnectionScopeConfig.IssueTypeRequirement)
-	plan.LastUpdated = types.StringValue(time.Now().Format(time.RFC850))
 	plan.Name = types.StringValue(updatedGithubConnectionScopeConfig.Name)
 	plan.PrBodyClosePattern = types.StringValue(updatedGithubConnectionScopeConfig.PrBodyClosePattern)
 	plan.PrComponent = types.StringValue(updatedGithubConnectionScopeConfig.PrComponent)

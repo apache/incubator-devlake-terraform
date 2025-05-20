@@ -113,13 +113,20 @@ type GithubConnectionScopeConfig struct {
 }
 
 type GithubConnectionScope struct {
-	BitbucketId   string `json:"bitbucketId"`
-	CloneUrl      string `json:"cloneUrl"`
-	ConnectionId  int    `json:"connectionId"`
-	CreatedAt     string `json:"createdAt"`
-	Description   string `json:"description"`
+	CloneUrl      string `json:"CloneUrl"`
+	ConnectionId  int    `json:"ConnectionId"`
+	CreatedAt     string `json:"CreatedAt"`
+	CreatedDate   string `json:"CreatedDate"`
+	Description   string `json:"Description"`
+	FullName      string `json:"FullName"`
+	GithubId      int    `json:"GithubId"`
 	HTMLUrl       string `json:"HTMLUrl"`
-	Name          string `json:"name"`
-	ScopeConfigId int    `json:"scopeConfigId"`
-	UpdatedAt     string `json:"updatedAt"`
+	Language      string `json:"Language"`
+	Name          string `json:"Name"`
+	OwnerId       int    `json:"OwnerId"`
+	ParentHtmlUrl string `json:"ParentHtmlUrl"`
+	ParentId      int    `json:"ParentId"`
+	ScopeConfigId int    `json:"ScopeConfigId"`
+	UpdatedAt     string `json:"UpdatedAt"`
+	UpdatedDate   string `json:"UpdatedDate"`
 }

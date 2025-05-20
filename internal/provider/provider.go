@@ -187,5 +187,6 @@ func (p *devlakeProvider) Resources(_ context.Context) []func() resource.Resourc
 		NewBitbucketServerConnectionScopeResource,
 		NewGithubConnectionResource,
 		NewGithubConnectionScopeConfigResource,
+		NewGithubConnectionScopeResource,
 	}
 }

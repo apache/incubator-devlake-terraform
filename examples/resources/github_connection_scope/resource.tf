@@ -24,3 +24,11 @@ resource "devlake_github_connection_scopeconfig" "scopeconf" {
   connection_id = devlake_github_connection.gh.id
   name          = "conf1"
 }
+
+resource "devlake_github_connection_scope" "scope" {
+  full_name       = "PROJECT/REPO"
+  id              = "42"
+  connection_id   = devlake_github_connection.gh.id
+  description     = "example repo"
+  scope_config_id = devlake_github_connection_scopeconfig.scopeconf.id
+}
