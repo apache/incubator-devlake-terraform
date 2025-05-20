@@ -34,7 +34,7 @@ func (c *Client) UpdateGithubConnection(id string, connection GithubConnection) 
 // DeleteGithubConnection - Deletes a github connection.
 func (c *Client) DeleteGithubConnection(id string) error {
 	url := fmt.Sprintf("%s/plugins/github/connections/%s", c.HostURL, id)
-	return delete(c, url)
+	return del(c, url)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ func (c *Client) UpdateGithubConnectionScopeConfig(connectionId, scopeConfigId s
 // DeleteGithubConnectionScopeConfig - Deletes a github connection scope config.
 func (c *Client) DeleteGithubConnectionScopeConfig(connectionId, scopeConfigId string) error {
 	url := fmt.Sprintf("%s/plugins/github/connections/%s/scope-configs/%s", c.HostURL, connectionId, scopeConfigId)
-	return delete(c, url)
+	return del(c, url)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -138,5 +138,5 @@ func (c *Client) UpdateGithubConnectionScope(connectionId, scopeId string, scope
 // DeleteGithubConnectionScope - Deletes a github connection scope.
 func (c *Client) DeleteGithubConnectionScope(connectionId, scopeId string) error {
 	url := fmt.Sprintf("%s/plugins/github/connections/%s/scopes/%s", c.HostURL, connectionId, scopeId)
-	return delete(c, url)
+	return del(c, url)
 }

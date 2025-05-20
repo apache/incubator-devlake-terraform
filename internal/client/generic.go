@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-// create - Generic wrapper for POST requests
+// create - Generic wrapper for POST requests.
 func create[T any](c *Client, url string, reqObj T) (*T, error) {
 	rb, err := json.Marshal(reqObj)
 	if err != nil {
@@ -35,7 +35,7 @@ func create[T any](c *Client, url string, reqObj T) (*T, error) {
 	return &respObj, nil
 }
 
-// read - Generic wrapper for GET requests
+// read - Generic wrapper for GET requests.
 func read[T any](c *Client, url string) (*T, error) {
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -56,7 +56,7 @@ func read[T any](c *Client, url string) (*T, error) {
 	return &respObj, nil
 }
 
-// update - Generic wrapper for PATCH requests
+// update - Generic wrapper for PATCH requests.
 func update[T any](c *Client, url string, reqObj T) (*T, error) {
 	rb, err := json.Marshal(reqObj)
 	if err != nil {
@@ -83,8 +83,8 @@ func update[T any](c *Client, url string, reqObj T) (*T, error) {
 	return &respObj, nil
 }
 
-// delete - Generic wrapper for DELETE requests
-func delete(c *Client, url string) error {
+// delete - Generic wrapper for DELETE requests.
+func del(c *Client, url string) error {
 	req, err := http.NewRequest("DELETE", url, nil)
 	if err != nil {
 		return err

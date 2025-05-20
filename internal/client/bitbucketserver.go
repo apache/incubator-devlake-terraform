@@ -34,7 +34,7 @@ func (c *Client) UpdateBitbucketServerConnection(id string, connection Bitbucket
 // DeleteBitbucketServerConnection - Deletes a bitbucket server connection.
 func (c *Client) DeleteBitbucketServerConnection(id string) error {
 	url := fmt.Sprintf("%s/plugins/bitbucket_server/connections/%s", c.HostURL, id)
-	return delete(c, url)
+	return del(c, url)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ func (c *Client) UpdateBitbucketServerConnectionScopeConfig(connectionId, scopeC
 // DeleteBitbucketServerConnectionScopeConfig - Deletes a bitbucket server connection scope config.
 func (c *Client) DeleteBitbucketServerConnectionScopeConfig(connectionId, scopeConfigId string) error {
 	url := fmt.Sprintf("%s/plugins/bitbucket_server/connections/%s/scope-configs/%s", c.HostURL, connectionId, scopeConfigId)
-	return delete(c, url)
+	return del(c, url)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -138,5 +138,5 @@ func (c *Client) UpdateBitbucketServerConnectionScope(connectionId, scopeId stri
 // DeleteBitbucketServerConnectionScope - Deletes a bitbucket server connection scope.
 func (c *Client) DeleteBitbucketServerConnectionScope(connectionId, scopeId string) error {
 	url := fmt.Sprintf("%s/plugins/bitbucket_server/connections/%s/scopes/%s", c.HostURL, connectionId, scopeId)
-	return delete(c, url)
+	return del(c, url)
 }
