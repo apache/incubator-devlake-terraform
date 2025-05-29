@@ -34,8 +34,8 @@ services:
 
   grafana:
     image: devlake.docker.scarf.sh/apache/devlake-dashboard:latest
-    build:
-      context: grafana/
+    #build: # remove build context to prevent github actions failures
+    #  context: grafana/
     ports:
       - 3002:3000
     volumes:
@@ -54,11 +54,11 @@ services:
 
   devlake:
     image: devlake.docker.scarf.sh/apache/devlake:latest
-    build:
-      context: backend
-      args:
-        HTTPS_PROXY: "${HTTPS_PROXY}"
-        GOPROXY: "${GOPROXY}"
+    #build: # remove build context to prevent github actions failures
+    #  context: backend
+    #  args:
+    #    HTTPS_PROXY: "${HTTPS_PROXY}"
+    #    GOPROXY: "${GOPROXY}"
     ports:
       - 8080:8080
     restart: always
@@ -75,8 +75,8 @@ services:
 
   config-ui:
     image: devlake.docker.scarf.sh/apache/devlake-config-ui:latest
-    build:
-      context: "config-ui"
+    #build: # remove build context to prevent github actions failures
+    #  context: "config-ui"
     ports:
       - 4000:4000
     env_file:

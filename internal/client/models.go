@@ -73,3 +73,60 @@ type BitbucketServerConnectionScope struct {
 	ScopeConfigId int    `json:"scopeConfigId"`
 	UpdatedAt     string `json:"updatedAt"`
 }
+
+type GithubConnection struct {
+	ID               int    `json:"id"`
+	AppId            string `json:"appId"`
+	AuthMethod       string `json:"authMethod"`
+	CreatedAt        string `json:"createdAt"`
+	EnableGraphql    bool   `json:"enableGraphql"`
+	Endpoint         string `json:"endpoint"`
+	InstallationId   int    `json:"installationId"`
+	Name             string `json:"name"`
+	Proxy            string `json:"proxy"`
+	RateLimitPerHour int    `json:"rateLimitPerHour"`
+	SecretKey        string `json:"secretKey"`
+	Token            string `json:"token"`
+	UpdatedAt        string `json:"updatedAt"`
+}
+
+type GithubConnectionScopeConfig struct {
+	ConnectionId         int      `json:"connectionId"`
+	CreatedAt            string   `json:"createdAt"`
+	DeploymentPattern    string   `json:"deploymentPattern"`
+	Entities             []string `json:"entities"`
+	EnvNamePattern       string   `json:"envNamePattern"`
+	ID                   int      `json:"id"`
+	IssueComponent       string   `json:"issueComponent"`
+	IssuePriority        string   `json:"issuePriority"`
+	IssueSeverity        string   `json:"issueSeverity"`
+	IssueTypeBug         string   `json:"issueTypeBug"`
+	IssueTypeIncident    string   `json:"issueTypeIncident"`
+	IssueTypeRequirement string   `json:"issueTypeRequirement"`
+	Name                 string   `json:"name"`
+	PrBodyClosePattern   string   `json:"prBodyClosePattern"`
+	PrComponent          string   `json:"prComponent"`
+	PrType               string   `json:"prType"`
+	ProductionPattern    string   `json:"productionPattern"`
+	RefDiff              *RefDiff `json:"refdiff"`
+	UpdatedAt            string   `json:"updatedAt"`
+}
+
+type GithubConnectionScope struct {
+	CloneUrl      string `json:"CloneUrl"`
+	ConnectionId  int    `json:"ConnectionId"`
+	CreatedAt     string `json:"CreatedAt"`
+	CreatedDate   string `json:"CreatedDate"`
+	Description   string `json:"Description"`
+	FullName      string `json:"FullName"`
+	GithubId      int    `json:"GithubId"`
+	HTMLUrl       string `json:"HTMLUrl"`
+	Language      string `json:"Language"`
+	Name          string `json:"Name"`
+	OwnerId       int    `json:"OwnerId"`
+	ParentHtmlUrl string `json:"ParentHtmlUrl"`
+	ParentId      int    `json:"ParentId"`
+	ScopeConfigId int    `json:"ScopeConfigId"`
+	UpdatedAt     string `json:"UpdatedAt"`
+	UpdatedDate   string `json:"UpdatedDate"`
+}
